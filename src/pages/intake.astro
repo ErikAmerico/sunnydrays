@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE } from "../config/site";
+---
+
+<Layout
+  title="Sunny Dray's Cleaning | Booking"
+  description="Start here. Tell us what you need and we will respond fast."
+>
+  <Header slot="header" />
+
+  <section class="relative">
+    <div class="wrapper">
+      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">
+        Book Your Cleaning
+      </h1>
+      <p class="mt-4 text-base md:text-lg" style="color: var(--muted);">
+        Add 3 to 6 sentences that describe who this form is for, what you do,
+        and the service area. This text is what search engines actually read.
+      </p>
+    </div>
+
+    <!-- <div class="mt-10 rounded-3xl " style="border-color: var(--border);">
+      <script is:inline type="text/javascript" src="https://form.jotform.com/jsform/253528374720055"></script>
+    </div> -->
+
+    <div
+      id="jotform-wrapper"
+      class="mt-10 rounded-3xl opacity-0 transition-opacity duration-500 min-h-250"
+      style="border-color: var(--border);"
+    >
+      <script
+        type="text/javascript"
+        is:inline
+        src="https://form.jotform.com/jsform/253528374720055"></script>
+    </div>
+
+    <script>
+      window.addEventListener("load", () => {
+        const form = document.getElementById("jotform-wrapper");
+        if (!form) return;
+
+        // allow one frame so layout settles
+        requestAnimationFrame(() => {
+          form.style.opacity = "1";
+        });
+      });
+    </script>
+
+    <div class="relative h-25 bg-white w-full bottom-17 -mb-62"></div>
+  </section>
+
+  <br /><br />
+
+  <Footer slot="footer" />
+</Layout>
