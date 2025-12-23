@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Sunny Dray's Cleaning | About"
+  description="About page description for search results."
+>
+  <Header slot="header" />
+
+  <section class="wrapper py-16">
+    <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">About</h1>
+    <p class="mt-4 text-base md:text-lg" style="color: var(--muted);">
+      A clean home can make everything feel more manageable. We’re here to help
+      you reset.
+    </p>
+
+    <div class="mt-8 grid gap-8 md:grid-cols-2 items-center">
+      <div
+        class="mt-8 rounded-3xl border p-6 md:p-8"
+        style="border-color: var(--border);"
+      >
+        <h2 class="text-lg font-semibold">How we help</h2>
+
+        <p class="mt-2 text-sm" style="color: var(--muted);">
+          Sunny Dray’s Cleaning was created with one simple belief: a clean
+          space can make everything feel more manageable.
+        </p>
+
+        <p class="mt-2 text-sm" style="color: var(--muted);">
+          When your home feels overwhelming, it’s hard to know where to begin.
+          Having someone step in, reset the space, and give you a true clean
+          slate can make a real difference. Whether it’s a one-time deep clean
+          or a recurring service, our goal is to take that burden off your
+          shoulders.
+        </p>
+
+        <p class="mt-2 text-sm" style="color: var(--muted);">
+          We approach every home with care, attention to detail, and respect for
+          your time and space. From the first visit to ongoing cleanings, we’re
+          here to help you feel more comfortable, more organized, and more at
+          ease in your home.
+        </p>
+
+        <p class="mt-2 text-sm" style="color: var(--muted);">
+          Because sometimes, the biggest relief starts with a clean space.
+        </p>
+
+        <div class="mt-6">
+          <a
+            href="/intake"
+            class="rounded-xl bg-[#d93a1b] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710] inline-flex"
+          >
+            Get Relief
+          </a>
+        </div>
+      </div>
+      <div
+        class="mt-8 about-div rounded-3xl text-center"
+        style="border-color: var(--border);"
+      >
+        <img
+          src="/assets/IMG_5579.png"
+          alt="Owner of Sunny Dray's Cleaning"
+          class="max-w-sm h-101.25 rounded-3xl object-contain"
+          loading="lazy"
+          decoding="async"
+        />
+        <p class="mt-4 text-sm px-4" style="color: var(--muted);">
+          Owner-operated by Andraya, locally based in Southern New Hampshire.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
