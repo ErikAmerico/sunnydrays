@@ -1,16 +1,111 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
+const cards = [
+  {
+    href: "/about",
+    title: "About",
+    body: "Sunny Dray’s Cleaning was created with one simple belief: a clean space can make everything feel more manageable.",
+  },
+  {
+    href: "/services",
+    title: "Services",
+    list: [
+      "One-time deep cleaning",
+      "Recurring home cleaning",
+      "Move-in / move-out cleans",
+    ],
+  },
+  {
+    href: "/intake",
+    title: "Start Here",
+    body: "Get a quick estimate and check availability in a few simple steps.",
+  },
+  {
+    href: "/contact",
+    title: "Contact",
+    body: "Call, text, or email anytime to check availability or ask a question.",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Sunny Dray's Cleaning | Home"
+  description="One sentence: who you help, what you do, and where."
+>
+  <Header slot="header" />
+
+  <section class="wrapper py-16 md:py-20">
+    <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <h1 class="text-3xl md:text-5xl font-semibold tracking-tight">
+          Professional home cleaning in Southern NH and the Merrimack Valley
+        </h1>
+        <p class="mt-4 text-base md:text-lg" style="color: var(--muted);">
+          Thoughtful, reliable cleaning for busy households, whether you need a
+          reset or ongoing care.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a
+            class="inline-flex items-center justify-center bg-[#d93a1b] rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710]"
+            href="/intake"
+          >
+            Instant Estimate
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="rounded-3xl border p-6 md:p-8"
+        style="border-color: var(--border);"
+      >
+        <h2 class="text-lg font-semibold">What you can expect</h2>
+        <ul
+          class="mt-4 list-disc pl-5 grid text-sm"
+          style="color: var(--muted);"
+        >
+          <li>A cleaner home that feels lighter and easier to manage</li>
+          <li>Clear communication and consistent, detailed cleaning</li>
+          <li>Owner-operated with care in every visit</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrapper pb-16">
+    <div class="grid gap-4 md:grid-cols-2 mt-10">
+      {
+        cards.map((c) => (
+          <a
+            href={c.href}
+            class="rounded-3xl border border-[#d93a1b] flex flex-col justify-between  p-6 hover:bg-slate-50 transition-colors"
+          >
+            <h2 class="text-lg font-semibold">{c.title}</h2>
+            {c.body && (
+              <p class="mt-2 text-sm" style="color: var(--muted);">
+                {c.body}
+              </p>
+            )}
+
+            {c.list && (
+              <ul
+                class="mt-2 list-disc pl-5 text-sm"
+                style="color: var(--muted);"
+              >
+                {c.list.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            )}
+            <div class="mt-4 text-sm font-semibold">View →</div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
