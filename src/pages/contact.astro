@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE } from "../config/site";
+---
+
+<Layout
+  title="Sunny Dray's Cleaning | Contact"
+  description="Contact page description for search results."
+>
+  <Header slot="header" />
+
+  <section class="wrapper py-16">
+    <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Contact</h1>
+    <p class="mt-4 text-base md:text-lg" style="color: var(--muted);">
+      Reach out the way that’s easiest for you. We’ll take it from there.
+    </p>
+
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <div
+        class="rounded-3xl border p-6 flex flex-col justify-between border-[#F1CACE]"
+      >
+        <div>
+          <h2 class="text-lg font-semibold">Call or email</h2>
+          <p class="mt-3 text-sm">
+            <a
+              class="hover:underline underline-offset-4"
+              href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a
+            >
+          </p>
+          <p class="mt-2 text-sm">
+            <a
+              class="hover:underline underline-offset-4"
+              href={`mailto:${SITE.email}`}>{SITE.email}</a
+            >
+          </p>
+          <p class="mt-2 text-sm" style="color: var(--muted);">
+            {SITE.cityLine}
+          </p>
+        </div>
+
+        <div class="flex ml-auto items-end md:items-center gap-4">
+          <a
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/70 text-slate-700 hover:bg-white"
+            href={SITE.facebookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <img
+              src="/assets/Facebook_Logo_Primary.webp"
+              alt=""
+              class="h-10 w-10"
+            />
+          </a>
+
+          <a
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/70 text-slate-700 hover:bg-white"
+            href={SITE.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <img
+              src="/assets/Instagram_Glyph_Gradient.webp"
+              alt=""
+              class="h-10 w-10"
+            />
+          </a>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-6 border border-[#F1CACE]">
+        <h2 class="text-lg font-semibold">Schedule Your Cleaning Today</h2>
+        <p class="mt-4 text-sm" style="color: var(--muted);">
+          Sunny Dray’s Cleaning provides professional residential cleaning
+          throughout Southern New Hampshire and the Merrimack Valley. Our
+          service area includes communities along the Merrimack River and nearby
+          towns, with a focus on Plaistow, Hampstead, Windham, Salem, Exeter,
+          Seabrook NH, and surrounding areas.
+        </p>
+
+        <p class="mt-4 text-sm" style="color: var(--muted);">
+          In Massachusetts, we regularly serve Haverhill, Methuen, North
+          Andover, Amesbury, and Newburyport. If you’re unsure whether your
+          location is covered, just reach out. we’re happy to confirm
+          availability.
+        </p>
+        <a
+          href="/intake"
+          class="rounded-xl mt-6 bg-[#d93a1b] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710] inline-flex"
+        >
+          Scheduling
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
