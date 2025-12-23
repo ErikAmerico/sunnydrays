@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const services = [
+  { title: "Service One", body: "1 to 2 lines describing outcome." },
+  { title: "Service Two", body: "Keep it specific. Avoid buzzwords." },
+  { title: "Service Three", body: "Explain what is included." },
+];
+---
+<Layout title="Sunny Dray's Cleaning | Services" description="Services description for search results.">
+  <Header slot="header" />
+
+  <section class="wrapper py-16">
+    <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Services</h1>
+    <p class="mt-4 text-base md:text-lg" style="color: var(--muted);">
+      Quick overview and then straight into the list.
+    </p>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-2">
+      {services.map((s) => (
+        <div class="rounded-3xl border p-6" style="border-color: var(--border);">
+          <h2 class="text-lg font-semibold">{s.title}</h2>
+          <p class="mt-2 text-sm" style="color: var(--muted);">{s.body}</p>
+            <a
+                href="/intake"
+                class="hidden mt-6 rounded-xl bg-[#d93a1b] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710] sm:inline-flex"
+              >
+                Get Started
+            </a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>
