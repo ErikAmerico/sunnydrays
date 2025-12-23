@@ -1,0 +1,187 @@
+---
+import { SITE } from "../config/site";
+
+const links = [
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/intake", label: "Book Cleaning" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<footer class="relative mt-20 border-t border-t-[#F1CACE]">
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/assets/noSUN.webp"
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover opacity-20"
+    />
+  </div>
+
+  <div class="relative z-10">
+    <div
+      class="mx-auto md:justify-items-center grid max-w-6xl gap-10 px-5 py-12 grid-cols-1 md:grid-cols-3"
+    >
+      <div class="grid gap-3 text-center md:text-left">
+        <div
+          class="flex items-center justify-center gap-2 font-semibold md:justify-start"
+        >
+          <img
+            src="/assets/logo.png"
+            alt=""
+            width="72"
+            height="72"
+            class="block"
+          />
+          <span>{SITE.name}</span>
+        </div>
+        <p class="text-sm text-slate-600">
+          A clean slate for your space and your mind.
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-2 gap-10 text-center md:col-span-2 md:text-left md:grid-cols-2"
+      >
+        <div class="grid gap-3">
+          <h2 class="text-sm font-semibold text-slate-900">Pages</h2>
+          <ul class="grid gap-2 text-sm text-slate-700">
+            {
+              links.map((l) => (
+                <li>
+                  <a class="hover:underline underline-offset-4" href={l.href}>
+                    {l.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="grid gap-3">
+          <h2 class="text-sm font-semibold text-slate-900">Contact</h2>
+          <a
+            class="text-sm text-slate-700 hover:underline underline-offset-4"
+            href={`tel:${SITE.phone}`}
+          >
+            {SITE.phoneDisplay}
+          </a>
+          <a
+            class="text-sm text-slate-700 hover:underline underline-offset-4"
+            href={`mailto:${SITE.email}`}
+          >
+            {SITE.email}
+          </a>
+          <p class="text-sm text-slate-600">{SITE.cityLine}</p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="wrapper grid gap-3 col-span-2 place-items-center px-5 md:col-span-1 md:place-items-end"
+    >
+      <div class="flex items-center gap-4 -mt-5 mb-5">
+        <a
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/70 text-slate-700 hover:bg-white"
+          href={SITE.facebookUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <img
+            src="/assets/Facebook_Logo_Primary.webp"
+            alt=""
+            class="h-10 w-10"
+          />
+        </a>
+
+        <a
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/70 text-slate-700 hover:bg-white"
+          href={SITE.instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <img
+            src="/assets/Instagram_Glyph_Gradient.webp"
+            alt=""
+            class="h-10 w-10"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="border-t border-slate-200/60">
+  <div
+    class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-3 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-around"
+  >
+    <span>© {new Date().getFullYear()} {SITE.name}</span>
+
+    <!-- Drop-up service area -->
+    <details class="relative sm:text-left z-50">
+      <summary
+        class="cursor-pointer select-none font-semibold text-slate-500 hover:text-slate-900 list-none"
+      >
+        View full service area
+      </summary>
+
+      <div
+        class="absolute bottom-full right-0 mb-3
+          w-[min(520px,calc(100vw-2rem))]
+          rounded-xl border border-[#F1CACE] bg-white p-4 shadow-lg
+          text-slate-700"
+      >
+        <div class="grid gap-4 text-sm">
+          <div>
+            <h3 class="font-semibold text-slate-900">New Hampshire</h3>
+            <p>
+              Plaistow, Hampstead, Chester, Windham, Salem, Exeter, Portsmouth,
+              Atkinson
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-slate-900">Massachusetts</h3>
+            <p>Haverhill, Methuen, North Andover, Amesbury, Newburyport</p>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const detailsEls = Array.from(
+      document.querySelectorAll("details")
+    ) as HTMLDetailsElement[];
+
+    function closeAll(except?: HTMLDetailsElement) {
+      for (const d of detailsEls) {
+        if (d !== except) d.removeAttribute("open");
+      }
+    }
+
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      if (!(target instanceof Node)) return;
+
+      const clickedDetails = detailsEls.find((d) => d.contains(target));
+
+      if (clickedDetails) {
+        closeAll(clickedDetails);
+      } else {
+        closeAll();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeAll();
+    });
+  })();
+</script>
