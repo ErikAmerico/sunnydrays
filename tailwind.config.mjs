@@ -5,8 +5,10 @@ export default {
     extend: {
       colors: {
         brand: {
-          navy: "var(--brand-navy)",
-          blue: "var(--brand-blue)",
+          orange: "var(--brand-orange)",
+          yellow: "var(--brand-yellow)",
+          pink: "var(--brand-pink)",
+          cream: "var(--brand-cream)",
         },
       },
     },
