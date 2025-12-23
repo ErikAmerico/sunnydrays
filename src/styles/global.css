@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --brand-orange: #d93a1b;
+  --brand-yellow: #f29710;
+  --brand-pink: #f1cace;
+  --brand-cream: #eee9de;
+  --text: #0b1220;
+  --muted: #556070;
+  --border: rgba(15, 23, 42, 0.12);
+  --bg: #ffffff;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+.wrapper {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.about-div {
+  display: flex;
+  flex-direction: row;
+
+  p {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  align-items: flex-start;
+}
+
+@media (max-width: 1115px) {
+  .about-div {
+    flex-direction: column-reverse;
+    p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about-div {
+    flex-direction: row;
+    p {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .about-div {
+    flex-direction: column-reverse;
+    align-items: center;
+    p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
