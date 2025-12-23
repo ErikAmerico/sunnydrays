@@ -1,0 +1,77 @@
+---
+import SEOhead from "../components/SEOhead.astro";
+import "../styles/global.css";
+
+const { title, description } = Astro.props;
+
+import { SITE } from "../config/site";
+
+const serviceAreas = [
+  // New Hampshire
+  { name: "Plaistow", region: "NH" },
+  { name: "Hampstead", region: "NH" },
+  { name: "Chester", region: "NH" },
+  { name: "Windham", region: "NH" },
+  { name: "Salem", region: "NH" },
+  { name: "Exeter", region: "NH" },
+  { name: "Portsmouth", region: "NH" },
+  { name: "Atkinson", region: "NH" },
+
+  // Massachusetts
+  { name: "Haverhill", region: "MA" },
+  { name: "Methuen", region: "MA" },
+  { name: "North Andover", region: "MA" },
+  { name: "Amesbury", region: "MA" },
+  { name: "Newburyport", region: "MA" },
+];
+
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "CleaningService",
+  name: SITE.name,
+  url: `https://${SITE.domain}`,
+  telephone: SITE.phone,
+  email: SITE.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Plaistow",
+    addressRegion: "NH",
+    addressCountry: "US",
+  },
+  areaServed: serviceAreas.map((c) => ({
+    "@type": "City",
+    name: c.name,
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: c.region,
+      addressCountry: "US",
+    },
+  })),
+  sameAs: [SITE.facebookUrl, SITE.instagramUrl],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEOhead
+      title={title}
+      description={description}
+      canonical={Astro.url.href}
+    />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(ld)}
+    />
+  </head>
+  <body>
+    <slot name="header" />
+
+    <main class="pt-4" id="main">
+      <slot />
+    </main>
+
+    <slot name="footer" />
+  </body>
+</html>
