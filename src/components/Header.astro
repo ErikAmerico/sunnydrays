@@ -48,36 +48,52 @@ function isActive(href: string) {
     <div class="flex items-center gap-3">
       <a
         href="/intake"
+        data-astro-reload="true"
         class="hidden rounded-xl bg-[#d93a1b] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710] md:inline-flex"
       >
         Get Started
       </a>
 
-      <details class="relative md:hidden">
+      <details class="relative md:hidden group">
         <summary
-          class="cursor-pointer list-none rounded-xl border px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+          class="cursor-pointer list-none rounded-xl p-2"
+          aria-label="Open menu"
         >
-          Menu
+          <span class="sr-only">Open menu</span>
+          <div class="grid gap-1.5">
+            <span
+              class="block h-0.5 w-6 rounded-full bg-slate-700 transition-all group-open:translate-y-2 group-open:rotate-45"
+            ></span>
+            <span
+              class="block h-0.5 w-6 rounded-full bg-slate-700 transition-all group-open:opacity-0"
+            ></span>
+            <span
+              class="block h-0.5 w-6 rounded-full bg-slate-700 transition-all group-open:-translate-y-2 group-open:-rotate-45"
+            ></span>
+          </div>
         </summary>
+
         <div
-          class="absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border bg-white shadow-lg"
+          class="absolute right-0 mt-2 w-64 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl"
         >
-          <div class="grid p-2">
+          <div class="grid gap-1 p-2">
             {
               links.map((l) => (
                 <a
                   href={l.href}
                   data-astro-reload={l.href === "/intake" ? true : undefined}
-                  class={`rounded-xl px-3 py-2 text-sm font-medium hover:bg-slate-50 ${
-                    isActive(l.href) ? "text-slate-900" : "text-slate-700"
+                  class={`flex items-center rounded-xl px-3 py-2 text-sm font-medium transition hover:bg-slate-50 ${
+                    isActive(l.href) ? "text-[#d93a1b]" : "text-slate-700"
                   }`}
                 >
-                  {l.label}
+                  <span>{l.label}</span>
                 </a>
               ))
             }
+
+            <div class="my-1 h-px bg-slate-200"></div>
             <a
-              class="mt-2 rounded-xl bg-[#d93a1b] px-3 py-2 text-center text-sm font-semibold text-white"
+              class="rounded-xl bg-[#d93a1b] px-3 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710]"
               href="/intake"
               data-astro-reload="true"
             >
