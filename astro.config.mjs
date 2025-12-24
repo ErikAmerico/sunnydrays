@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://sunnydrayscleaning.com",
+  site: "https://www.sunnydrayscleaning.com",
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
