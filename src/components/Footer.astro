@@ -74,10 +74,16 @@ const links = [
             {SITE.phoneDisplay}
           </a>
           <a
-            class="text-sm text-slate-700 hover:text-[#d93a1b] transition-colors duration-500 ease-in-out break-all"
+            class="text-sm text-slate-700 hover:text-[#d93a1b] transition-colors duration-500 ease-in-out"
             href={`mailto:${SITE.email}`}
           >
-            {SITE.email}
+            <span class="inline">
+              {SITE.email.split("@")[0]}<wbr
+                class="hidden max-[493px]:inline"
+              /><span class="max-[493px]:block"
+                >@{SITE.email.split("@")[1]}</span
+              >
+            </span>
           </a>
           <p class="text-sm text-slate-600">{SITE.cityLine}</p>
         </div>
