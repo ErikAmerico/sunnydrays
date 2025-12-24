@@ -63,10 +63,7 @@ const services = [
     <div class="mt-10 grid gap-4 md:grid-cols-2">
       {
         services.map((s) => (
-          <div
-            class="rounded-3xl border p-6"
-            style="border-color: var(--border);"
-          >
+          <div class="rounded-3xl border p-6 border-[#F1CACE] md:border-(--border)">
             <h2 class="text-lg font-semibold">{s.title}</h2>
 
             <p class="mt-2 text-sm" style="color: var(--muted);">
@@ -85,7 +82,7 @@ const services = [
             <a
               href="/intake"
               data-astro-reload="true"
-              class="hidden mt-6 rounded-xl bg-[#d93a1b] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710] sm:inline-flex"
+              class="inline-flex mt-6 rounded-xl bg-[#d93a1b] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710]"
             >
               Get Estimate
             </a>
