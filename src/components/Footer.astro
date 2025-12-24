@@ -55,6 +55,7 @@ const links = [
                   <a
                     class="hover:text-[#d93a1b] transition-colors duration-500 ease-in-out"
                     href={l.href}
+                    data-astro-reload={l.href === "/intake" ? true : undefined}
                   >
                     {l.label}
                   </a>

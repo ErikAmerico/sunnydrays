@@ -67,6 +67,7 @@ function isActive(href: string) {
               links.map((l) => (
                 <a
                   href={l.href}
+                  data-astro-reload={l.href === "/intake" ? true : undefined}
                   class={`rounded-xl px-3 py-2 text-sm font-medium hover:bg-slate-50 ${
                     isActive(l.href) ? "text-slate-900" : "text-slate-700"
                   }`}
@@ -76,8 +77,9 @@ function isActive(href: string) {
               ))
             }
             <a
-              class="mt-2 rounded-xl bg-slate-900 px-3 py-2 text-center text-sm font-semibold text-white"
+              class="mt-2 rounded-xl bg-[#d93a1b] px-3 py-2 text-center text-sm font-semibold text-white"
               href="/intake"
+              data-astro-reload="true"
             >
               Get Started
             </a>

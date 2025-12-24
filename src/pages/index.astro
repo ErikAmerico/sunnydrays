@@ -52,6 +52,7 @@ const cards = [
           <a
             class="inline-flex items-center justify-center bg-[#d93a1b] rounded-xl px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710]"
             href="/intake"
+            data-astro-reload="true"
           >
             Instant Estimate
           </a>
@@ -82,6 +83,7 @@ const cards = [
           <a
             href={c.href}
             class="rounded-3xl border border-[#d93a1b] flex flex-col justify-between  p-6 hover:bg-slate-50 transition-colors"
+            data-astro-reload={c.href === "/intake" ? true : undefined}
           >
             <h2 class="text-lg font-semibold">{c.title}</h2>
             {c.body && (
