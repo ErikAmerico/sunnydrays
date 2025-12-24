@@ -12,10 +12,15 @@ import Footer from "../components/Footer.astro";
 
   <section class="relative">
     <div class="wrapper">
-      <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">
+      <h1
+        class="booking-h1 text-3xl md:text-4xl font-semibold tracking-tight opacity-0 transition-opacity duration-500"
+      >
         Book Your Cleaning
       </h1>
-      <p class="mt-4 text-sm" style="color: var(--muted);">
+      <p
+        class="booking-p mt-4 text-sm opacity-0 transition-opacity duration-500"
+        style="color: var(--muted);"
+      >
         Sunny Dray’s Cleaning provides thoughtful, reliable home cleaning
         throughout Southern New Hampshire and the Merrimack Valley. We offer
         one-time deep cleans, recurring home cleaning, and move-in or move-out
@@ -28,7 +33,7 @@ import Footer from "../components/Footer.astro";
 
     <div
       id="jotform-wrapper"
-      class="mt-10 rounded-3xl opacity-0 transition-opacity duration-400 min-h-250"
+      class="mt-10 rounded-3xl opacity-0 transition-opacity duration-500 min-h-250"
       style="border-color: var(--border);"
     >
       <script
@@ -42,10 +47,22 @@ import Footer from "../components/Footer.astro";
         const form = document.getElementById("jotform-wrapper");
         if (!form) return;
 
-        // allow one frame so layout settles
+        const myH1 = document.querySelector(
+          ".booking-h1"
+        ) as HTMLElement | null;
+        const myP = document.querySelector(".booking-p") as HTMLElement | null;
+
         requestAnimationFrame(() => {
-          form.style.opacity = "1";
+          myH1!.style.opacity = "1";
         });
+
+        setTimeout(() => {
+          myP!.style.opacity = "1";
+        }, 200);
+
+        setTimeout(() => {
+          form.style.opacity = "1";
+        }, 450);
       });
     </script>
 
