@@ -52,7 +52,10 @@ const links = [
             {
               links.map((l) => (
                 <li>
-                  <a class="hover:underline underline-offset-4" href={l.href}>
+                  <a
+                    class="hover:text-[#d93a1b] transition-colors duration-500 ease-in-out"
+                    href={l.href}
+                  >
                     {l.label}
                   </a>
                 </li>
@@ -64,13 +67,13 @@ const links = [
         <div class="grid gap-3">
           <h2 class="text-sm font-semibold text-slate-900">Contact</h2>
           <a
-            class="text-sm text-slate-700 hover:underline underline-offset-4"
+            class="text-sm text-slate-700 hover:text-[#d93a1b] transition-colors duration-500 ease-in-out"
             href={`tel:${SITE.phone}`}
           >
             {SITE.phoneDisplay}
           </a>
           <a
-            class="text-sm text-slate-700 hover:underline underline-offset-4 break-all"
+            class="text-sm text-slate-700 hover:text-[#d93a1b] transition-colors duration-500 ease-in-out break-all"
             href={`mailto:${SITE.email}`}
           >
             {SITE.email}
