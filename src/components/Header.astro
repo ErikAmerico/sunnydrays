@@ -34,10 +34,9 @@ function isActive(href: string) {
         links.map((l) => (
           <a
             href={l.href}
-            class={`text-sm font-medium transition hover:opacity-80 ${
-              isActive(l.href)
-                ? "text-slate-900 underline underline-offset-8"
-                : "text-slate-600"
+            data-astro-reload={l.href === "/intake" ? true : undefined}
+            class={`text-sm font-medium transition-colors duration-500 ease-in-out hover:opacity-80 ${
+              isActive(l.href) ? "text-[#d93a1b]" : "text-slate-600"
             }`}
           >
             {l.label}
