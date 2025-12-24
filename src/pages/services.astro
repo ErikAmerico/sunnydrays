@@ -4,33 +4,93 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const services = [
-  { title: "Service One", body: "1 to 2 lines describing outcome." },
-  { title: "Service Two", body: "Keep it specific. Avoid buzzwords." },
-  { title: "Service Three", body: "Explain what is included." },
+  {
+    title: "One-time deep clean",
+    body: "A full reset when your home needs extra attention. We focus on the details that make everything feel fresh, calm, and easy to manage again.",
+    includes: [
+      "Kitchen surfaces and exterior appliances",
+      "Bathrooms fully cleaned and sanitized",
+      "Floors vacuumed and mopped",
+      "Dusting throughout (including baseboards as needed)",
+    ],
+  },
+  {
+    title: "Recurring home cleaning (ongoing care)",
+    body: "Consistent cleaning on a schedule that fits your life. Perfect for busy households who want a home that stays comfortable without the stress.",
+    includes: [
+      "One-time, weekly, bi-weekly, or monthly options",
+      "High-traffic areas prioritized each visit",
+      "Bathrooms and kitchen refreshed",
+      "Floors and surfaces maintained",
+    ],
+  },
+  {
+    title: "Move-in and move-out cleaning",
+    body: "A thorough clean for empty homes and apartments. Great for renters, homeowners, and landlords who want the space ready for what’s next.",
+    includes: [
+      "Inside cabinets and drawers (empty)",
+      "Appliance exterior and interior by request",
+      "Bathrooms deep cleaned",
+      "Floors, trim, and surfaces detailed",
+    ],
+  },
+  {
+    title: "Add-ons by request",
+    body: "Need a little extra in one area? Add-ons let you customize your clean so you get the help that matters most right now.",
+    includes: [
+      "Inside fridge or oven",
+      "Dishes",
+      "Laundry folding or bed changes",
+      "Priority areas you want tackled first",
+    ],
+    sub: "Add-ons are optional and can be added during booking if you need them.",
+  },
 ];
 ---
-<Layout title="Sunny Dray's Cleaning | Services" description="Services description for search results.">
+
+<Layout
+  title="Sunny Dray's Cleaning | Services"
+  description="Services description for search results."
+>
   <Header slot="header" />
 
   <section class="wrapper py-16">
     <h1 class="text-3xl md:text-4xl font-semibold tracking-tight">Services</h1>
     <p class="mt-4 text-base md:text-lg" style="color: var(--muted);">
-      Quick overview and then straight into the list.
+      Choose the level of help you need, from a one-time reset to ongoing care.
     </p>
 
     <div class="mt-10 grid gap-4 md:grid-cols-2">
-      {services.map((s) => (
-        <div class="rounded-3xl border p-6" style="border-color: var(--border);">
-          <h2 class="text-lg font-semibold">{s.title}</h2>
-          <p class="mt-2 text-sm" style="color: var(--muted);">{s.body}</p>
+      {
+        services.map((s) => (
+          <div
+            class="rounded-3xl border p-6"
+            style="border-color: var(--border);"
+          >
+            <h2 class="text-lg font-semibold">{s.title}</h2>
+
+            <p class="mt-2 text-sm" style="color: var(--muted);">
+              {s.body}
+            </p>
+
+            <ul class="mt-4 grid gap-2 text-sm" style="color: var(--muted);">
+              {s.includes.map((item) => (
+                <li class="flex gap-2">
+                  <span aria-hidden="true">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
             <a
-                href="/intake"
-                class="hidden mt-6 rounded-xl bg-[#d93a1b] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710] sm:inline-flex"
-              >
-                Get Started
+              href="/intake"
+              class="hidden mt-6 rounded-xl bg-[#d93a1b] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#F29710] sm:inline-flex"
+            >
+              Get Estimate
             </a>
-        </div>
-      ))}
+          </div>
+        ))
+      }
     </div>
   </section>
 
