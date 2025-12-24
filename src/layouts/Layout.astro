@@ -1,6 +1,7 @@
 ---
 import SEOhead from "../components/SEOhead.astro";
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 
 const { title, description } = Astro.props;
 
@@ -64,6 +65,7 @@ const ld = {
       type="application/ld+json"
       set:html={JSON.stringify(ld)}
     />
+    <ClientRouter />
   </head>
   <body>
     <slot name="header" />
