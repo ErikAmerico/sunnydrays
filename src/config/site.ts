@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Sunny Dray's Cleaning",
-  domain: "example.com", // set to your real domain later
+  domain: "sunnydrayscleaning.com",
   defaultTitle: "Sunny Dray's Cleaning",
   defaultDescription:
     "Sunny Dray's Cleaning provides residential cleaning across Southern New Hampshire and the Merrimack Valley.",
@@ -11,4 +11,7 @@ export const SITE = {
   jotformId: "253528374720055",
   facebookUrl: "https://www.facebook.com/profile.php?id=61584865443246",
   instagramUrl: "https://www.instagram.com/sunnydrayscleaning/",
+  logo: "/assets/logo.png",
+  image: "/assets/sunnyDrayLarge2.webp",
+  priceRange: "$$",
 };

@@ -6,6 +6,7 @@ import { ClientRouter } from "astro:transitions";
 const { title, description } = Astro.props;
 
 import { SITE } from "../config/site";
+const baseUrl = `https://${SITE.domain}`;
 
 const serviceAreas = [
   // New Hampshire
@@ -30,9 +31,12 @@ const ld = {
   "@context": "https://schema.org",
   "@type": "CleaningService",
   name: SITE.name,
-  url: `https://${SITE.domain}`,
+  url: baseUrl,
   telephone: SITE.phone,
   email: SITE.email,
+  image: `${baseUrl}${SITE.image}`,
+  logo: `${baseUrl}${SITE.logo}`,
+  priceRange: SITE.priceRange ?? "$$",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Plaistow",
