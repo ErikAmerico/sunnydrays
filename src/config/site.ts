@@ -4,8 +4,8 @@ export const SITE = {
   defaultTitle: "Sunny Dray's Cleaning",
   defaultDescription:
     "Sunny Dray's Cleaning provides residential cleaning across Southern New Hampshire and the Merrimack Valley.",
-  phone: "+16034535916",
-  phoneDisplay: "(603) 453-5916",
+  phone: "+16034530288",
+  phoneDisplay: "(603) 453-0288",
   email: "sunnydrayscleaning@gmail.com",
   cityLine: "Plaistow, NH",
   jotformId: "253528374720055",
